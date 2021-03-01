@@ -1,23 +1,25 @@
-require('bootstrap');
-import $ from 'jquery';
-const axios = require('axios');
-// Just so that webpack recognises it
 
-import '../css/main.css';
-import jQuerySpinner from './spinner.js';
-import '../node_modules/bootstrap/dist/css/bootstrap.css';
 $(function(){
     $('.header').height($(window).height());
 })
 
-var spinner = new jQuerySpinner({
-    parentId:'loading_spinner'
-});
-$("#submitbtn")(function(){
+$("#main_form").on("submit", function(e){
+    e.preventDefault();
     // spinner.show();
-    data = $("#submitbtn").serialize();
-    console.log("hubris");
-    console.log(data);
+
+    var company = $("#main_form :input[name='company']");
+    
+    var n = $("#main_form :input[name='n']");
+    
+    var m = $("#main_form :input[name='m']");
+    var data = $('#form').serializeArray().reduce(function(obj, item) {
+        obj[item.name] = item.value;
+        return obj;
+    }, {});
+    console.log(data['company']);
+    console.log(company);
+    console.log(n);
+    console.log(m);
     // const myPromise = new Promise((resolve, reject) => {
     //     setTimeout(() => {
     //       resolve('foo');
