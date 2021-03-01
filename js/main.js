@@ -35,9 +35,9 @@ $("#main_form").on("submit", function(e){
         (githubData) => {
             console.log(githubData);
             const [top_n_repos, CompleteData] = githubData;
-            repo_list = $("#repo-list");
+            var repo_list = $("#repo-list");
             repo_list.html("");
-            collaborators_pane = $("#collaborators-list");
+            var collaborators_pane = $("#collaborators-list");
             collaborators_pane.html("");
             top_n_repos.forEach((repo) => {
                 repo_list.append(`<a href="#" class="text-center list-group-item"> ${repo.name} <small>${repo.forks} forks</small> </a>`);
